@@ -33,3 +33,8 @@
       text-align: left;
       width: 70%;
   }
+
+  .end-of-quiz {
+      text-align: center;
+      font-size: 15px;
+    }

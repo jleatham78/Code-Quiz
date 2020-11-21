@@ -1,36 +1,4 @@
 //build array for questions
-var pos = 0;
-var correct = 0;
-var test, test_status, question, choice, choices, chA, chB, chC, cdD;
-
-var myQuestions = [
-    { 
-        question: "Commonly used data types do Not include:", 
-            a: "A. Strings",
-            b: "B. Booleans",
-            c: "C. Alerts",
-            d: "D. Numbers",
-            answer: "C"
-        },
-    {
-        question: "The condition in an if/else statement is enclosed with:", 
-            a: "A. Quotes",
-            b: "B. Curly brackets",
-            c: "C. Parantheses",
-            d: "D. Square brackets",
-            answer: "C"
-        },
-
-    { 
-        question: "Arrays in JavaScript can be used to store:", 
-            a: "A. Numbers and strings",
-            b: "B. Other arrays",
-            c: "C. Booleans",
-            d: "D. All of the above",
-            answer: "D"
-        }
-];
-
 
 var introContainerEl = document.createElement("div");
     document.body.appendChild(introContainerEl);
@@ -62,7 +30,7 @@ buttonEl.addEventListener("click", function() {
     renderQuestion1()
 })
 
-
+//question 1
 var renderQuestion1 = function() {
     var quizContainerEl = document.createElement("div");
     document.body.appendChild(quizContainerEl);
@@ -72,11 +40,13 @@ var renderQuestion1 = function() {
     question1El.textContent = "Commonly used data types do not include:"
     quizContainerEl.appendChild(question1El);
 
+//question 1 answers
     var buttona1El = document.createElement("button");
     buttona1El.textContent = "Strings";
     buttona1El.className = "btn";
     quizContainerEl.appendChild(buttona1El);
-    //buttonq1El.setAttribute("id", "start-button");
+
+//if button is clicked, prompt shows incorrect
     buttona1El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect");
@@ -103,6 +73,7 @@ var renderQuestion1 = function() {
     buttona3El.className = "btn";
     quizContainerEl.appendChild(buttona3El);
 
+    //correct answer
     buttona3El.addEventListener("click", function() {
         if (true) {
             alert("Correct");
@@ -112,10 +83,7 @@ var renderQuestion1 = function() {
     });
 }
 
-
-
-    
-
+//question 2
 var renderQuestion2 = function() {
     var quizContainerEl = document.createElement("div");
     document.body.appendChild(quizContainerEl);
@@ -125,56 +93,107 @@ var renderQuestion2 = function() {
     question2El.textContent = "The condition in an if/else statement is enclosed with:"
     quizContainerEl.appendChild(question2El);
 
-    var buttonq2El = document.createElement("button");
-    buttonq2El.textContent = "Quotes";
-    buttonq2El.className = "btn";
-    quizContainerEl.appendChild(buttonq2El);
-    //buttonq1El.setAttribute("id", "start-button");
+    var buttona1q2El = document.createElement("button");
+    buttona1q2El.textContent = "Quotes";
+    buttona1q2El.className = "btn";
+    quizContainerEl.appendChild(buttona1q2El);
+
+    buttona1q2El.addEventListener("click", function() {
+        if (true) {
+            alert("Incorrect");
+        };
+        quizContainerEl.remove();
+        renderQuestion3()
+    });
+
+    var buttona2q2El = document.createElement("button");
+    buttona2q2El.textContent = "Parantheses";
+    buttona2q2El.className = "btn";
+    quizContainerEl.appendChild(buttona2q2El);
     
-    buttonq2El.addEventListener("click", function() {
+    //correct answer
+    buttona2q2El.addEventListener("click", function() {
         if (true) {
             alert("Correct");
-            console.log(buttonq2El);
-        //} else {
-          //  alert("Incorrect");
         };
-        //renderQuestion2()
-    })
+        quizContainerEl.remove();
+        renderQuestion3()
+    });
+
+    var buttona3q2El = document.createElement("button");
+    buttona3q2El.textContent = "Quotes";
+    buttona3q2El.className = "btn";
+    quizContainerEl.appendChild(buttona3q2El);
+
+    buttona3q2El.addEventListener("click", function() {
+        if (true) {
+            alert("Incorrect");
+        };
+        quizContainerEl.remove();
+        renderQuestion3()
+    });
 }
+
+//question 3
+var renderQuestion3 = function() {
+    var quizContainerEl = document.createElement("div");
+    document.body.appendChild(quizContainerEl);
+
+    var question3El = document.createElement("h2")
+    question3El.className = "question-style";
+    question3El.textContent = "Arrays in JavaScript can be used to store:"
+    quizContainerEl.appendChild(question3El);
+
+    var buttona1q3El = document.createElement("button");
+    buttona1q3El.textContent = "Numbers and Strings";
+    buttona1q3El.className = "btn";
+    quizContainerEl.appendChild(buttona1q3El);
+
+    buttona1q3El.addEventListener("click", function() {
+        if (true) {
+            alert("Incorrect");
+        };
+        quizContainerEl.remove();
+        renderQuestion3()
+    });
+
+    var buttona2q3El = document.createElement("button");
+    buttona2q3El.textContent = "Other Arrays";
+    buttona2q3El.className = "btn";
+    quizContainerEl.appendChild(buttona2q3El);
     
-    // test = get("test");
-    // if(pos >= myQuestions.length) {
-    //     test.innerHTML = "<h2>You got" +correct+" of "+myQuestions.length+" questions correct</h2>";
-    //     get("test-status").innerHTML = "Test Completed";
-    //     //resets variable to allow users to restart the test
-    //     pos = 0;
-    //     correct = 0;
-    //     //stops rest of renderQuestion running when test is completed
-    //     return false;
-    // }
+    //correct answer
+    buttona2q3El.addEventListener("click", function() {
+        if (true) {
+            alert("Incorrect");
+        };
+        quizContainerEl.remove();
+        renderQuestion3()
+    });
 
-    // //get("test_status").innerHTML = "Question "+(pos+1)+" of "+myQuestions.length;
+    var buttona3q3El = document.createElement("button");
+    buttona3q3El.textContent = "All of the above";
+    buttona3q3El.className = "btn";
+    quizContainerEl.appendChild(buttona3q3El);
 
-    // question = myQuestions[pos].question;
-    // chA = myQuestions[pos].a;
-    // chB = myQuestions[pos].b;
-    // chC = myQuestions[pos].c;
-    // chD = myQuestions[pos].d;
+    buttona3q3El.addEventListener("click", function() {
+        if (true) {
+            alert("Correct");
+        };
+        quizContainerEl.remove();
+        endofQuiz()
+    });
+}
 
-    // //display the question
-    // test.innerHTML = "<h3>"+question+"</h3>";
+//when questions are finished
+var endofQuiz = function () {
+    
+    var finishQuizEl = document.createElement("div");
+    finishQuizEl.className = "welcome";
+    finishQuizEl.textContent = "Congratulations! Test is over."
+    document.body.appendChild(finishQuizEl);
 
-    // //display the answer options
-    // test.innerHTML += "<label> <input type="button" name="choices" value="A"> "+chA+"</label><br>";
-    // test.innerHTML += "<label> <input type="button" name="choices" value="B"> "+chB+"</label><br>";
-    // test.innerHTML += "<button onclick="checkAnswer()">Submit Answer</button>";
-
-
-//create quiz button--eventhandler
-//create function to start quiz
-
-//create function to go to next question
-
+}
 //create fuction to answer correct or incorrect
     //if incorrect, subtract time
 //show/store score
@@ -196,23 +215,3 @@ var renderQuestion2 = function() {
 
 //     var quizContainer = document.createElement('div');
 //     quizContainer.className = "quiz-questions";
-
-
-//     //for each question
-//     myQuestions.forEach(
-//         (currentQuestion, questionNumber) => {
-
-//             //variable to store the list of possible answers
-//             var answers = [];
-
-//             //and for each available answer
-//             for(number in currentQuestions.answers){
-
-//                 //add buttons
-//                 answers.push(
-
-//                 )
-//             }
-//         }
-//     )
-// }

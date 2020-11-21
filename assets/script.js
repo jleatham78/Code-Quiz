@@ -9,30 +9,20 @@ function countdown() {
         if (timeLeft > 1) {
           timerEl.textContent = timeLeft;
           timeLeft--;
-
-        //} else if  {
-            //finishQuizEl=true
-            //clearInterval(timeInterval);
-           // console.log(finishQuizEl);
         } 
     
          else {
            timerEl.textContent = ''
       
-          clearInterval(timeInterval);
-          alert("Time's up!");
-        }
-        //if (alert="Incorrect"--can't pull from other functions?)
+            clearInterval(timeInterval)
+            //alert("Time's up!");
+            }
+    
     },750);
 
-    //document.getElementById(buttona1El).addEventListener('click', function() {
-         //sec -= 5;
-    //     document.getElementById('timerDisplay').innerHTML='00:'+sec;
-    //});
-    //startTimer();
 }
   
-
+//starting page
 var introContainerEl = document.createElement("div");
     document.body.appendChild(introContainerEl);
 
@@ -64,14 +54,6 @@ buttonEl.addEventListener("click", function() {
     countdown(35);
 })
 
-//var startGame = function() {
-
-//}
-
-//make element for the scores, textContent = 0
-//make a function to decrease timer (get element by Id and subtract, start timer)
-//make function to increase score (get score element id, increase the textContent--call when correct)
-
 //question 1
 var renderQuestion1 = function() {
 
@@ -96,12 +78,12 @@ var renderQuestion1 = function() {
         if (true) {
             alert("Incorrect. You've lost 10 seconds");
             timeLeft = timeLeft - 10;
-            //call a function that changes the textContent of timerEl
         };
         quizContainerEl.remove();
         renderQuestion2()
     });
 
+    //second answer button, incorrect
     var buttona2El = document.createElement("button");
     buttona2El.textContent = "Booleans";
     buttona2El.className = "btn";
@@ -128,7 +110,6 @@ var renderQuestion1 = function() {
             score = score + 1;
             localStorage.setItem("score", score);
             alert("Correct");
-            console.log(score);
         };
         quizContainerEl.remove();
         renderQuestion2()
@@ -150,6 +131,7 @@ var renderQuestion2 = function() {
     buttona1q2El.className = "btn";
     quizContainerEl.appendChild(buttona1q2El);
 
+    //incorrect answer
     buttona1q2El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect. You've lost 10 seconds");
@@ -175,8 +157,9 @@ var renderQuestion2 = function() {
         renderQuestion3()
     });
 
+    //incorrect answer
     var buttona3q2El = document.createElement("button");
-    buttona3q2El.textContent = "Quotes";
+    buttona3q2El.textContent = "Curly Brackets";
     buttona3q2El.className = "btn";
     quizContainerEl.appendChild(buttona3q2El);
 
@@ -200,11 +183,12 @@ var renderQuestion3 = function() {
     question3El.textContent = "Arrays in JavaScript can be used to store:"
     quizContainerEl.appendChild(question3El);
 
+     //incorrect answer
     var buttona1q3El = document.createElement("button");
     buttona1q3El.textContent = "Numbers and Strings";
     buttona1q3El.className = "btn";
     quizContainerEl.appendChild(buttona1q3El);
-
+   
     buttona1q3El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect. You've lost 10 seconds");
@@ -214,12 +198,12 @@ var renderQuestion3 = function() {
         endofQuiz()
     });
 
+     //incorrect answer
     var buttona2q3El = document.createElement("button");
     buttona2q3El.textContent = "Other Arrays";
     buttona2q3El.className = "btn";
     quizContainerEl.appendChild(buttona2q3El);
     
-    //correct answer
     buttona2q3El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect. You've lost 10 seconds");
@@ -229,6 +213,7 @@ var renderQuestion3 = function() {
         endofQuiz()
     });
 
+    //correct answer
     var buttona3q3El = document.createElement("button");
     buttona3q3El.textContent = "All of the above";
     buttona3q3El.className = "btn";
@@ -238,7 +223,6 @@ var renderQuestion3 = function() {
         if (true) {
             score = score + 1;
             alert("Correct");
-            console.log(score);
         };
         quizContainerEl.remove();
         endofQuiz()
@@ -247,11 +231,13 @@ var renderQuestion3 = function() {
 
 //when questions are finished
 var endofQuiz = function () {
-    //stop time function
+    timeLeft = clearInterval();
+    //alert("You beat the timer!");
     var finishQuizEl = document.createElement("div");
     finishQuizEl.className = "welcome";
-    finishQuizEl.textContent = "Congratulations! Test is over.";
+    finishQuizEl.textContent = "Test is over!";
     document.body.appendChild(finishQuizEl);
+    
     
     // var form = document.createElement("form");
     // finishQuizEl.appendChild(form);
@@ -276,14 +262,4 @@ var endofQuiz = function () {
 //     var score1 = {name: name, score: score}; 
 //     highScores.push(score1)
 //     finishQuizEl.remove();
-
-// }
-// buttonEl.onclick = countdown;
-
-    //if incorrect, subtract time
-//show/store score
-//display high scores
-
-//style questions
-//style buttons for answers
 

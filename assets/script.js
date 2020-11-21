@@ -1,4 +1,22 @@
-//build array for questions
+var timerEl = document.getElementById('countdown');
+
+function countdown() {
+    var timeLeft = 35;
+    var timeInterval = setInterval(function() {
+        if (timeLeft > 1) {
+          timerEl.textContent = timeLeft;
+          timeLeft--;
+        // //} else if (timeLeft === 1) {
+        //   timerEl.textContent = timeLeft;
+         } else {
+           timerEl.textContent = '';
+  
+          clearInterval(timeInterval);
+          alert("Time's up!");
+        }
+      },750);
+    }
+  
 
 var introContainerEl = document.createElement("div");
     document.body.appendChild(introContainerEl);
@@ -20,7 +38,7 @@ var startquizEl = document.createElement("h2");
 
 var buttonEl = document.createElement("button");
     buttonEl.textContent = "Start Quiz!";
-    buttonEl.className = "btn";
+    buttonEl.className = "btn-start-quiz";
     introContainerEl.appendChild(buttonEl);
     buttonEl.setAttribute("id", "start-button");
 
@@ -50,6 +68,7 @@ var renderQuestion1 = function() {
     buttona1El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect");
+            //need to remove time here
         };
         quizContainerEl.remove();
         renderQuestion2()
@@ -63,6 +82,7 @@ var renderQuestion1 = function() {
     buttona2El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect");
+            //need to remove time here
         };
         quizContainerEl.remove();
         renderQuestion2()
@@ -101,6 +121,7 @@ var renderQuestion2 = function() {
     buttona1q2El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect");
+            //need to remove time here
         };
         quizContainerEl.remove();
         renderQuestion3()
@@ -128,6 +149,7 @@ var renderQuestion2 = function() {
     buttona3q2El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect");
+            //need to remove time here
         };
         quizContainerEl.remove();
         renderQuestion3()
@@ -152,6 +174,7 @@ var renderQuestion3 = function() {
     buttona1q3El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect");
+            //need to remove time here
         };
         quizContainerEl.remove();
         renderQuestion3()
@@ -166,6 +189,7 @@ var renderQuestion3 = function() {
     buttona2q3El.addEventListener("click", function() {
         if (true) {
             alert("Incorrect");
+            //need to remove time here
         };
         quizContainerEl.remove();
         renderQuestion3()
@@ -194,7 +218,8 @@ var endofQuiz = function () {
     document.body.appendChild(finishQuizEl);
 
 }
-//create fuction to answer correct or incorrect
+buttonEl.onclick = countdown;
+
     //if incorrect, subtract time
 //show/store score
 //display high scores
@@ -202,16 +227,3 @@ var endofQuiz = function () {
 //style questions
 //style buttons for answers
 
-
-
-//create buttons for each answer--add dynamically?
-//add ul element for buttons
-//<button type="button" id="1"></button>
-//<input type="button" name= "question1" value="2" id="q1a">
-
-
-//     var buildQuiz = function() {
-//     var output = [];
-
-//     var quizContainer = document.createElement('div');
-//     quizContainer.className = "quiz-questions";

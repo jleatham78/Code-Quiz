@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .welcome {
+      font-size: 30px; 
+      text-align: center;
+      font-weight: bold;
+      padding: 30px;
+  }
+
+  .instructions {
+      font-size: 20px;
+      text-align: center;
+      width: 70%;
+      margin: auto; 
+      padding: 30px;
+  }
+
+  .btn {
+    outline: none;
+    border: none;
+    display: flex;
+    padding: 10px 15px;
+    background: red;
+    font-size: 20px;
+    border-radius: 12px;
+    align-items: center;
+    margin: 10px; 
+  }
+
+  .question-style {
+      text-align: left;
+      width: 70%;
+  }

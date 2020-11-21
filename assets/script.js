@@ -1,21 +1,36 @@
 var timerEl = document.getElementById('countdown');
+var timeLeft = 0;
+var score = 0;
+    
 
 function countdown() {
-    var timeLeft = 35;
+    timeLeft = 35;
     var timeInterval = setInterval(function() {
         if (timeLeft > 1) {
           timerEl.textContent = timeLeft;
           timeLeft--;
-        // //} else if (timeLeft === 1) {
-        //   timerEl.textContent = timeLeft;
-         } else {
-           timerEl.textContent = '';
-  
+
+        //} else if  {
+            //finishQuizEl=true
+            //clearInterval(timeInterval);
+           // console.log(finishQuizEl);
+        } 
+    
+         else {
+           timerEl.textContent = ''
+      
           clearInterval(timeInterval);
           alert("Time's up!");
         }
-      },750);
-    }
+        //if (alert="Incorrect"--can't pull from other functions?)
+    },750);
+
+    //document.getElementById(buttona1El).addEventListener('click', function() {
+         //sec -= 5;
+    //     document.getElementById('timerDisplay').innerHTML='00:'+sec;
+    //});
+    //startTimer();
+}
   
 
 var introContainerEl = document.createElement("div");
@@ -46,10 +61,22 @@ buttonEl.addEventListener("click", function() {
     buttonEl.remove();
     introContainerEl.remove();
     renderQuestion1()
+    countdown(35);
 })
+
+//var startGame = function() {
+
+//}
+
+//make element for the scores, textContent = 0
+//make a function to decrease timer (get element by Id and subtract, start timer)
+//make function to increase score (get score element id, increase the textContent--call when correct)
 
 //question 1
 var renderQuestion1 = function() {
+
+    //var score = localStorage.getItem('score');
+
     var quizContainerEl = document.createElement("div");
     document.body.appendChild(quizContainerEl);
 
@@ -67,8 +94,9 @@ var renderQuestion1 = function() {
 //if button is clicked, prompt shows incorrect
     buttona1El.addEventListener("click", function() {
         if (true) {
-            alert("Incorrect");
-            //need to remove time here
+            alert("Incorrect. You've lost 10 seconds");
+            timeLeft = timeLeft - 10;
+            //call a function that changes the textContent of timerEl
         };
         quizContainerEl.remove();
         renderQuestion2()
@@ -81,9 +109,10 @@ var renderQuestion1 = function() {
 
     buttona2El.addEventListener("click", function() {
         if (true) {
-            alert("Incorrect");
-            //need to remove time here
+            alert("Incorrect. You've lost 10 seconds");
+            timeLeft = timeLeft - 10;
         };
+
         quizContainerEl.remove();
         renderQuestion2()
     });
@@ -96,7 +125,10 @@ var renderQuestion1 = function() {
     //correct answer
     buttona3El.addEventListener("click", function() {
         if (true) {
+            score = score + 1;
+            localStorage.setItem("score", score);
             alert("Correct");
+            console.log(score);
         };
         quizContainerEl.remove();
         renderQuestion2()
@@ -120,8 +152,8 @@ var renderQuestion2 = function() {
 
     buttona1q2El.addEventListener("click", function() {
         if (true) {
-            alert("Incorrect");
-            //need to remove time here
+            alert("Incorrect. You've lost 10 seconds");
+            timeLeft = timeLeft - 10;
         };
         quizContainerEl.remove();
         renderQuestion3()
@@ -135,7 +167,9 @@ var renderQuestion2 = function() {
     //correct answer
     buttona2q2El.addEventListener("click", function() {
         if (true) {
+            score = score + 1;
             alert("Correct");
+            console.log(score);
         };
         quizContainerEl.remove();
         renderQuestion3()
@@ -148,8 +182,8 @@ var renderQuestion2 = function() {
 
     buttona3q2El.addEventListener("click", function() {
         if (true) {
-            alert("Incorrect");
-            //need to remove time here
+            alert("Incorrect. You've lost 10 seconds");
+            timeLeft = timeLeft - 10;
         };
         quizContainerEl.remove();
         renderQuestion3()
@@ -173,11 +207,11 @@ var renderQuestion3 = function() {
 
     buttona1q3El.addEventListener("click", function() {
         if (true) {
-            alert("Incorrect");
-            //need to remove time here
+            alert("Incorrect. You've lost 10 seconds");
+            timeLeft = timeLeft - 10;
         };
         quizContainerEl.remove();
-        renderQuestion3()
+        endofQuiz()
     });
 
     var buttona2q3El = document.createElement("button");
@@ -188,11 +222,11 @@ var renderQuestion3 = function() {
     //correct answer
     buttona2q3El.addEventListener("click", function() {
         if (true) {
-            alert("Incorrect");
-            //need to remove time here
+            alert("Incorrect. You've lost 10 seconds");
+            timeLeft = timeLeft - 10;
         };
         quizContainerEl.remove();
-        renderQuestion3()
+        endofQuiz()
     });
 
     var buttona3q3El = document.createElement("button");
@@ -202,7 +236,9 @@ var renderQuestion3 = function() {
 
     buttona3q3El.addEventListener("click", function() {
         if (true) {
+            score = score + 1;
             alert("Correct");
+            console.log(score);
         };
         quizContainerEl.remove();
         endofQuiz()
@@ -211,14 +247,38 @@ var renderQuestion3 = function() {
 
 //when questions are finished
 var endofQuiz = function () {
-    
+    //stop time function
     var finishQuizEl = document.createElement("div");
     finishQuizEl.className = "welcome";
-    finishQuizEl.textContent = "Congratulations! Test is over."
+    finishQuizEl.textContent = "Congratulations! Test is over.";
     document.body.appendChild(finishQuizEl);
+    
+    // var form = document.createElement("form");
+    // finishQuizEl.appendChild(form);
+    
+    // var label = document.createElement("label");
+    // form.appendChild(label);
+    // label.textContent = "Name"
+    // var nameField = document.createElement("input");
+    // form.appendChild(nameField);
+    // nameField.setAttribute("type", "text");
+    // nameField.setAttribute("id", "name");
+    // var submitButton = document.createElement("button");
+    // submitButton.setAttribute("value", "Submit score");
+    
+    //submitButton.onclick = saveName;
 
 }
-buttonEl.onclick = countdown;
+
+// var saveName = function() {
+//     var name = document.getElementById("name");
+//     var score = document.getElementById("score");
+//     var score1 = {name: name, score: score}; 
+//     highScores.push(score1)
+//     finishQuizEl.remove();
+
+// }
+// buttonEl.onclick = countdown;
 
     //if incorrect, subtract time
 //show/store score

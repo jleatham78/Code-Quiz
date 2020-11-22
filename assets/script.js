@@ -1,7 +1,6 @@
 var timerEl = document.getElementById('countdown');
 var timeLeft = 0;
-var score = 0;
-    
+var score = 0;    
 
 function countdown() {
     timeLeft = 35;
@@ -151,7 +150,6 @@ var renderQuestion2 = function() {
         if (true) {
             score = score + 1;
             alert("Correct");
-            console.log(score);
         };
         quizContainerEl.remove();
         renderQuestion3()
@@ -231,35 +229,39 @@ var renderQuestion3 = function() {
 
 //when questions are finished
 var endofQuiz = function () {
+        
     timeLeft = clearInterval();
-    //alert("You beat the timer!");
+    
     var finishQuizEl = document.createElement("div");
     finishQuizEl.className = "welcome";
     finishQuizEl.textContent = "Test is over!";
     document.body.appendChild(finishQuizEl);
     
+    //capture name
+    var form = document.createElement("form");
+    form.setAttribute("id", "add-name");
+    finishQuizEl.appendChild(form);
     
-    // var form = document.createElement("form");
-    // finishQuizEl.appendChild(form);
-    
-    // var label = document.createElement("label");
-    // form.appendChild(label);
-    // label.textContent = "Name"
-    // var nameField = document.createElement("input");
-    // form.appendChild(nameField);
-    // nameField.setAttribute("type", "text");
-    // nameField.setAttribute("id", "name");
-    // var submitButton = document.createElement("button");
-    // submitButton.setAttribute("value", "Submit score");
-    
-    //submitButton.onclick = saveName;
+    var label = document.createElement("label");
+    label.textContent = "Name";
+    label.className = "instructions";
+    form.appendChild(label);
 
+    var nameField = document.createElement("input");
+    form.appendChild(nameField);
+    nameField.setAttribute("type", "text");
+    nameField.setAttribute("id", "myInput");
+
+
+    var submitButton = document.createElement("button"); 
+    submitButton.textContent = "Submit";
+    submitButton.className = "btn-sumbit-name";
+    finishQuizEl.appendChild(submitButton);
+
+    //display score
+    submitButton.addEventListener("click", function() {
+        if (true) {
+            alert("Your score is " + score);
+         }
+    });
 }
-
-// var saveName = function() {
-//     var name = document.getElementById("name");
-//     var score = document.getElementById("score");
-//     var score1 = {name: name, score: score}; 
-//     highScores.push(score1)
-//     finishQuizEl.remove();
-

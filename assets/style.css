@@ -31,8 +31,7 @@
     background: red;
     font-size: 20px;
     border-radius: 12px;
-    margin-left: 600px; 
-    text-align: center;
+    margin-left: 600px;
   }
 
   .btn {
@@ -40,11 +39,22 @@
     border: none;
     display: flex;
     padding: 10px 15px;
-    background: red;
+    background: blue;
     font-size: 20px;
     border-radius: 12px;
     align-items: center;
     margin: 10px; 
+  }
+
+  .btn-submit-name {
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    background: red;
+    font-size: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
   }
 
   .question-style {

@@ -229,6 +229,7 @@ var renderQuestion3 = function() {
 
 //when questions are finished
 var endofQuiz = function () {
+    localStorage.setItem("score", score);
         
     timeLeft = clearInterval();
     
